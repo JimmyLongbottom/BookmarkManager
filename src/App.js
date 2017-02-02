@@ -5,18 +5,18 @@ import './App.css';
 class App extends Component {
   constructor (){
     super();
-  
+
 this.state = {};
+  resource: "https://facebook.github.io/react/docs/thinking-in-react.html"
+};
 
 }
-<p> what the?</p>
-
 //eveent handlers her
   render() {
-    return(
+    return(/
       <div>
-        <a href='https://facebook.github.io/react/docs/thinking-in-react.html'></a>
-      <p> what the?</p>
+        <a href=''>Thinking in React</a>
+        <p> what the?</p>
       </div>
     );
   }
