@@ -10,9 +10,9 @@ this.state = {
   resources: [{title: "thinking in react",
                 url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
               {title: "another Title",
-              url: "https://www.youtube.com/watch?v=vu_rIMPROoQ"},
+                url: "https://www.youtube.com/watch?v=vu_rIMPROoQ"},
               {title: "again, another title",
-              url:"https://www.youtube.com/watch?v=IEf1KAcK6A8"}]
+                url:"https://www.youtube.com/watch?v=IEf1KAcK6A8"}]
 };
 
 }
@@ -21,7 +21,7 @@ this.state = {
     return(
     <div>
       {this.state.resources.map((resource) =>{
-        return <a href = {resource.url}>{resource}</a>
+        return <a href = {resource.url}>{resource.title}</a>
       })}
     </div>
     );
