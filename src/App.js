@@ -7,12 +7,15 @@ class App extends Component {
     super();
 
 this.state = {
-  resources: [{title: "thinking in react",
+  resources: [{title: "Thinking in React",
                 url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
               {title: "another Title",
                 url: "https://www.youtube.com/watch?v=vu_rIMPROoQ"},
               {title: "again, another title",
-                url:"https://www.youtube.com/watch?v=IEf1KAcK6A8"}]
+                url:"https://www.youtube.com/watch?v=IEf1KAcK6A8"}
+                {title: "Review higher order functions",
+                 url: https//www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84}
+               ]
 };
 
 }
