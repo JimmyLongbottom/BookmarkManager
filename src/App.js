@@ -1,46 +1,4 @@
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// import Subject from "./Subject.js";
-//
-// class App extends Component {
-//   constructor (){
-//     super();
-//
-// this.state = {
-//   resources: [
-//      {
-//       subject: "Functional Programming Basics: Week 1",
-//         resources: [
-//           {
-//             title: "Thinking in React",
-//             url: "https://facebook.github.io/react/docs/thinking-in-react.html"
-//           },
-//
-//           {
-//             title: "Thinking in React",
-//             url: "https://facebook.github.io/react/docs/thinking-in-react.html"
-//           }]
-//
-//       },
 
-//
-//      {
-//       subject: " Programming Basics: Week 2",
-//         resources: [
-//         {
-//           title: "Thinking in React",
-//           url: "https://facebook.github.io/react/docs/thinking-in-react.html"
-//         },
-//
-//         {
-//           title: "yep",
-//           url: "#"
-//
-//      }
-//
-//  ]}
-//
 //       //beg render func
 //       //event handlers here
 
@@ -59,10 +17,7 @@
 //     );
 //   }
 //
-// }
 //
-//
-// export default App;
 
 import React, { Component } from 'react';
 import Subject from './Subject.js';
@@ -137,7 +92,8 @@ class App extends Component {
 
     ]}
   }
-
+        //event handlers here
+        
   render() {
 
     return (
