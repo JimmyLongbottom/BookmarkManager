@@ -1,23 +1,12 @@
+      //my old friends: 
+// Parent Component
+// <Subject items={this.state.resources[0]}/>
+// <Subject items={this.state.resources[1]}/>
+// <Subject items={this.state.resources[2]}/>
+// <Subject items={this.state.resources[3]}/>
 
-//       //beg render func
-//       //event handlers here
 
-//   render (){
-//     return (
-//       <div>
-//         {this.state.resources.map}((resource) =>{
-//           return(
-//             <li>
-//             <Subject items = {resource}/>
-//           </li>
-//           )
-//         })
-//
-//       </div>
-//     );
-//   }
-//
-//
+
 
 import React, { Component } from 'react';
 import Subject from './Subject.js';
@@ -92,17 +81,20 @@ class App extends Component {
 
     ]}
   }
-        //event handlers here
-        
+
   render() {
 
     return (
       <div style={{color:'darkBlue'}}>
-        Parent Component
-        <Subject items={this.state.resources[0]}/>
-        <Subject items={this.state.resources[1]}/>
-        <Subject items={this.state.resources[2]}/>
-        <Subject items={this.state.resources[3]}/>
+        {this.state.resources.map((resource) =>{
+            return(
+              <li>
+              <Subject items = {resource}/>
+              </li>
+            );
+        })
+       }
+
       </div>
     );
   }
