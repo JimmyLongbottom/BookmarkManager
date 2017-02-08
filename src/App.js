@@ -9,7 +9,7 @@
 //
 // this.state = {
 //   resources: [
-//     {
+//      {
 //       subject: "Functional Programming Basics: Week 1",
 //         resources: [
 //           {
@@ -23,8 +23,9 @@
 //           }]
 //
 //       },
+
 //
-//     {
+//      {
 //       subject: " Programming Basics: Week 2",
 //         resources: [
 //         {
@@ -35,17 +36,14 @@
 //         {
 //           title: "yep",
 //           url: "#"
-//         }
-//       ]
-//     }
 //
+//      }
 //
-//     ]
+//  ]}
 //
-// }
-//
-// //beg render func
-//                             //event handlers here
+//       //beg render func
+//       //event handlers here
+
 //   render (){
 //     return (
 //       <div>
@@ -76,7 +74,7 @@ class App extends Component {
     this.state = {resources: [
 
       {
-        subject: "Functional Programming Basics",
+        subject:"Intro and ES5 assessment / ES6 Intro - Week: 1",
         resources: [
           {
             title: "FunFunFunction Functional Programming Playlist",
@@ -95,7 +93,7 @@ class App extends Component {
 
 
       {
-        subject: "ES6",
+        subject: "Core ES6  - Week: 2",
         resources: [
           {
             title: "Kyle Robinson Young ES6 Essentials",
@@ -106,7 +104,23 @@ class App extends Component {
 
 
       {
-        subject: "Intro to React",
+        subject: "Thinking in React  - Week: 3",
+        resources: [
+          {
+            title: "Thinking in React",
+            url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
+          {
+            title: "Mindspace React Tutorial",
+            url: "https://www.youtube.com/watch?v=JPT3bFIwJYA&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS"},
+          {
+            title: "LearnCode Academy React Tutorial",
+            url: "https://youtu.be/fd2Cayhez58"
+          }
+        ]
+      },
+
+      {
+        subject: "Event Handling and Component Communication - Week: 4",
         resources: [
           {
             title: "Thinking in React",
@@ -132,6 +146,7 @@ class App extends Component {
         <Subject items={this.state.resources[0]}/>
         <Subject items={this.state.resources[1]}/>
         <Subject items={this.state.resources[2]}/>
+        <Subject items={this.state.resources[3]}/>
       </div>
     );
   }
