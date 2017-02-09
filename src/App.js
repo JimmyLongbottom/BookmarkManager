@@ -1,9 +1,13 @@
-      //my old friends: 
+      //my old friends:
 // Parent Component
 // <Subject items={this.state.resources[0]}/>
 // <Subject items={this.state.resources[1]}/>
 // <Subject items={this.state.resources[2]}/>
 // <Subject items={this.state.resources[3]}/>
+
+
+
+
 
 
 
@@ -81,6 +85,7 @@ class App extends Component {
 
     ]}
   }
+
 
   render() {
 
