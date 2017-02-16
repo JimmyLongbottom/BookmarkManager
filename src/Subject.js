@@ -54,8 +54,8 @@ handleTyping(e){
           {this.props.items.resources.map((resource) => {
             if(this.state.isClicked){
               return(
-                <li>
-                  <a style={{color:'green'}} href={resource.url}>{resource.title}</a>
+                <li className="links">
+                  <a  href={resource.url}>{resource.title}</a>
                 </li>
               )}
             })

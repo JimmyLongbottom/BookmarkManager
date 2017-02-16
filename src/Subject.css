@@ -5,21 +5,23 @@
   border-radius: 25px;
   text-align: center;
   background: #fff8d5;
-  color: #6d2aff;
+  color: orange;
   margin: 20px;
   padding: 10px;
   box-shadow: 3px 3px black;
-  text-shadow: .5px -.5px;
+  text-shadow: 1px 1px black;
 }
 
-//.sub:hover{
-  width: 500px
+.sub:hover{
+  -webkit-transition: width 0s; /* Safari */
+  width: 755px;
+  color: #6d2aff;
 }
 
 .list{
   list-style: none;
   text-shadow: none;
-  text-align: center;
+  text-align: left;
 
 }
 
@@ -27,9 +29,16 @@
     border-radius: 25px;
     -webkit-transition: width 2s; /* Safari */
     transition: width 2s;
+    background: orange;
 }
 
 .addButton:hover {
     width: 105px;
     height: 22px;
+}
+
+.links{
+
+  text-align: center;
+  padding: 4px;
 }
