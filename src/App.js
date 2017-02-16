@@ -83,6 +83,22 @@ class App extends Component {
             url: "https://youtu.be/fd2Cayhez58"
           }
         ]
+      },
+
+      {
+        subject: " Week: 5",
+        resources: [
+          {
+            title: "Thinking in React",
+            url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
+          {
+            title: "Mindspace React Tutorial",
+            url: "https://www.youtube.com/watch?v=JPT3bFIwJYA&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS"},
+          {
+            title: "LearnCode Academy React Tutorial",
+            url: "https://youtu.be/fd2Cayhez58"
+          }
+        ]
       }
 
     ]}
@@ -97,7 +113,7 @@ class App extends Component {
   render() {
 
     return (
-      <div style={{color:'darkBlue'}}>
+      <div>
         {this.state.resources.map((resource, index) =>{
             return(
                 <Subject

@@ -65,7 +65,7 @@ handleTyping(e){
           <label htmlFor="Title</label"></label>
           <input name="title" id="title" onChange={this.handleTyping} value={this.state.title}/>
           &nbsp;
-          <button onClick={this.handleSubmit}>Add Resource</button>
+          <button className="addButton" onClick={this.handleSubmit}>Add Resource</button>
         </form>
       </div>
     )

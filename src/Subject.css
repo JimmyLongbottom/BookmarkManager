@@ -1,13 +1,35 @@
 
 .sub{
-  border: 20px dotted darkBlue;
+  width: 750px;
+  //border: 20px dotted red;
+  border-radius: 25px;
   text-align: center;
-  background: lightGrey;
-  color: #333;
+  background: #fff8d5;
+  color: #6d2aff;
   margin: 20px;
   padding: 10px;
+  box-shadow: 3px 3px black;
+  text-shadow: .5px -.5px;
+}
+
+//.sub:hover{
+  width: 500px
 }
 
 .list{
   list-style: none;
+  text-shadow: none;
+  text-align: center;
+
+}
+
+.addButton {
+    border-radius: 25px;
+    -webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
+}
+
+.addButton:hover {
+    width: 105px;
+    height: 22px;
 }
