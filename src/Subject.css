@@ -1,8 +1,8 @@
 
-.Subject{
-  border: 10px solid orange;
+.sub{
+  border: 20px dotted darkBlue;
   text-align: center;
-  background: #f5f5f5;
+  background: lightGrey;
   color: #333;
   margin: 20px;
   padding: 10px;

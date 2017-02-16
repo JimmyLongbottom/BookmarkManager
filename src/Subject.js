@@ -47,7 +47,7 @@ handleTyping(e){
 
   render() {
     return(
-      <div>
+      <div className='sub'>
         <h2 onClick={this.handleClick}>{this.props.items.subject}</h2>
 
         <ul>
@@ -64,7 +64,7 @@ handleTyping(e){
         <form>
           <label htmlFor="Title</label"></label>
           <input name="title" id="title" onChange={this.handleTyping} value={this.state.title}/>
-          <br/>
+          &nbsp;
           <button onClick={this.handleSubmit}>Add Resource</button>
         </form>
       </div>
