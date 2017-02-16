@@ -21,6 +21,8 @@ class App extends Component {
   constructor() {
     super();
 
+    this.addNewResource = this.addNewResource.bind(this);
+
     this.state = {resources: [
 
       {
@@ -118,7 +120,7 @@ class App extends Component {
             return(
                 <Subject
                   index={index}
-                  addReosurce={this.addNewResource}
+                  addResource={this.addNewResource}
                   items={resource}
                 />
               )

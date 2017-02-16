@@ -62,9 +62,12 @@ handleTyping(e){
           }
         </ul>
         <form>
-          <label htmlFor="Title</label"></label>
+          <label htmlFor="title">Title</label>
           <input name="title" id="title" onChange={this.handleTyping} value={this.state.title}/>
           &nbsp;
+          <label htmlFor="url">URL</label>
+        <br/>
+        <input name="url" id="url" onChange={this.handleTyping} value={this.state.url}/>
           <button className="addButton" onClick={this.handleSubmit}>Add Resource</button>
         </form>
       </div>
