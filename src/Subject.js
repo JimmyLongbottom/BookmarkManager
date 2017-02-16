@@ -50,7 +50,7 @@ handleTyping(e){
       <div className='sub'>
         <h2 onClick={this.handleClick}>{this.props.items.subject}</h2>
 
-        <ul>
+        <ul className='list'>
           {this.props.items.resources.map((resource) => {
             if(this.state.isClicked){
               return(
