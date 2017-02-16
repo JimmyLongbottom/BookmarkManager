@@ -7,3 +7,4 @@ BookMark Managar for React:
 *Modify app.js + subject.js props to accomodate new state structure
 *Display list if resource titles and links per componentld components in App;js
 *programatically generate children
+*clicking in the header changes text appearence

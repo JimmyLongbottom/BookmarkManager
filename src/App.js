@@ -1,13 +1,14 @@
+
+
+//App JS
+
+
       //my old friends:
 // Parent Component
 // <Subject items={this.state.resources[0]}/>
 // <Subject items={this.state.resources[1]}/>
 // <Subject items={this.state.resources[2]}/>
 // <Subject items={this.state.resources[3]}/>
-
-
-
-
 
 
 
@@ -86,23 +87,30 @@ class App extends Component {
     ]}
   }
 
+  addNewResource(subject, resource){
+    const tempState = this.state;
+    tempState.resources[subject].resources.push(resource);
+    this.setState(tempState)
+  }
 
   render() {
 
     return (
       <div style={{color:'darkBlue'}}>
-        {this.state.resources.map((resource) =>{
+        {this.state.resources.map((resource, index) =>{
             return(
-              <li>
-              <Subject items = {resource}/>
-              </li>
-            );
-        })
-       }
-
+                <Subject
+                  index={index}
+                  addReosurce={this.addNewResource}
+                  items={resource}
+                />
+              )
+          })
+        }
       </div>
-    );
+      );
+    }
   }
-}
+
 
 export default App;
