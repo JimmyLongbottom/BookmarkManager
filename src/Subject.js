@@ -4,6 +4,7 @@
 
 import React, { Component } from 'react';
 import './Subject.css';
+import './logo.svg';
 
 export default class Subject extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
               //  console.log(this.state.isClicked)
-              //setTImeout(){
+              //setTimeout(){
 // setTimeout(()=> {
 //   console.log(this.state.isCLicked)
 // }, 100}
@@ -55,14 +56,19 @@ handleTyping(e){
             if(this.state.isClicked){
               return(
                 <li className="links">
+
                   <a  href={resource.url}>{resource.title}</a>
+                  &nbsp; &nbsp;
+                  <button id='removeButton'>X</button>
                 </li>
               )}
             })
           }
-        <br/>  
+          <figure className='circle'></figure>
+        <br/>
         </ul>
         <form id='form'>
+
           <label htmlFor="title">Title</label>
           &nbsp;
           <input name="title" id="title" onChange={this.handleTyping} value={this.state.title}/>

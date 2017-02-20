@@ -27,7 +27,7 @@
 
 .addButton {
     border-radius: 25px;
-    -webkit-transition: width 2s; /* Safari */
+    -webkit-transition: width 2s;
     transition: width 2s;
     background: orange;
 }
@@ -45,4 +45,14 @@
 
 .form {
   color: red;
+}
+
+.circle{
+  display: block;
+  background: black;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  background: radial-gradient(circle at 100px 100px, #5cabff, #000);
 }
