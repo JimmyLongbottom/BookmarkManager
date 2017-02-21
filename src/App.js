@@ -134,12 +134,21 @@ class App extends Component {
             return(
                 <Subject
                   index={index}
-                  addResource={this.addNewResource}
+                  addResurce={this.addNewResource}
                   items={resource}
                 />
               )
           })
         }
+
+        <div>
+          <form>
+            <label htmlFor="subject"></label>
+            <input id="subject" name="subject" onChange={this.handeTyping} value={this.state.subject}></input>
+            <button onClick={this.addNewSubject}> new Subject </button>
+          </form>
+        </div>
+
       </div>
       );
     }
@@ -147,12 +156,3 @@ class App extends Component {
 
 
 export default App;
-
-//
-// <div>
-//   <form>
-//     <label htmlFor="subject"></label>
-//     <input id="subject" name="subject" onChange={this.handeTyping} value={this.state.subject}></input>
-//     <button onClick={this.addNewSubject}> new Subject </button>
-//   </form>
-// </div>
