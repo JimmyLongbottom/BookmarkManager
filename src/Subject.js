@@ -3,14 +3,13 @@
 
 
 import React, { Component } from 'react';
-import './Subject.css';
-import './logo.svg';
+import  './Subject.css';
+//import './logo.svg';
 
 export default class Subject extends Component {
   constructor(props) {
     super(props);
 
-    // event handlers
     this.handleCLick = this.handleClick.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,11 +56,9 @@ handleTyping(e){
             if(this.state.isClicked){
               return(
                 <li className="links">
-
                   <a  href={resource.url}>{resource.title}</a>
                   &nbsp; &nbsp;
-
-                  <button id='removeButton' onClick={this.removeResource}>X</button>
+                  <button id='removeButton' onClick="">X</button>
                 </li>
               )}
             })

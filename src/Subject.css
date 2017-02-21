@@ -13,7 +13,7 @@
 }
 
 .sub:hover{
-  -webkit-transition: width 0s; /* Safari */
+  -webkit-transition: width 0s;
   width: 755px;
   color: #6d2aff;
 }

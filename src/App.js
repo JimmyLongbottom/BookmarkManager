@@ -1,17 +1,5 @@
 
-
 //App JS
-
-
-      //my old friends:
-// Parent Component
-// <Subject items={this.state.resources[0]}/>
-// <Subject items={this.state.resources[1]}/>
-// <Subject items={this.state.resources[2]}/>
-// <Subject items={this.state.resources[3]}/>
-
-
-
 
 import React, { Component } from 'react';
 import Subject from './Subject.js';
@@ -108,23 +96,23 @@ class App extends Component {
     ]}
   }
 
-  // addNewResource(subject, resource){
-  //   const tempState = this.state;
-  //   tempState.resources[subject].resources.push(resource);
-  //   this.setState(tempState)
-  //
-  // }
+  addNewResource(subject, resource){
+    const tempState = this.state;
+    tempState.resources[subject].resources.push(resource);
+    this.setState(tempState)
 
-  // addNewSubject(e) {
-  //   e.preventDefault();
-  //   const newSubject = {
-  //     subject: this.state.subject,
-  //     resources: []
-  //   }
-  //   const tempState = this.state;
-  //   tempState.resources.subject.push(newSubject)
-  //   this.setState = tempState
-  // }
+  }
+
+  addNewSubject(e) {
+    e.preventDefault();
+    const newSubject = {
+      subject: this.state.subject,
+      resources: []
+    }
+    const tempState = this.state;
+    tempState.resources.subject.push(newSubject)
+    this.setState = tempState
+  }
 
   render() {
 
