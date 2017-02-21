@@ -22,6 +22,8 @@ class App extends Component {
     super();
 
     this.addNewResource = this.addNewResource.bind(this);
+    this.addNewSubject = this.addNewSubject.bind(this);
+    this.handleTyping = this.handleTyping.bind(this)
 
     this.state = {resources: [
 
@@ -106,11 +108,23 @@ class App extends Component {
     ]}
   }
 
-  addNewResource(subject, resource){
-    const tempState = this.state;
-    tempState.resources[subject].resources.push(resource);
-    this.setState(tempState)
-  }
+  // addNewResource(subject, resource){
+  //   const tempState = this.state;
+  //   tempState.resources[subject].resources.push(resource);
+  //   this.setState(tempState)
+  //
+  // }
+
+  // addNewSubject(e) {
+  //   e.preventDefault();
+  //   const newSubject = {
+  //     subject: this.state.subject,
+  //     resources: []
+  //   }
+  //   const tempState = this.state;
+  //   tempState.resources.subject.push(newSubject)
+  //   this.setState = tempState
+  // }
 
   render() {
 
@@ -133,3 +147,12 @@ class App extends Component {
 
 
 export default App;
+
+//
+// <div>
+//   <form>
+//     <label htmlFor="subject"></label>
+//     <input id="subject" name="subject" onChange={this.handeTyping} value={this.state.subject}></input>
+//     <button onClick={this.addNewSubject}> new Subject </button>
+//   </form>
+// </div>

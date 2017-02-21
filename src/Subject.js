@@ -40,6 +40,7 @@ handleClick(){
 handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
+
               //  console.log(this.state.isClicked)
               //setTimeout(){
 // setTimeout(()=> {
@@ -59,7 +60,8 @@ handleTyping(e){
 
                   <a  href={resource.url}>{resource.title}</a>
                   &nbsp; &nbsp;
-                  <button id='removeButton'>X</button>
+
+                  <button id='removeButton' onClick={this.removeResource}>X</button>
                 </li>
               )}
             })
