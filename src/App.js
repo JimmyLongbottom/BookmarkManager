@@ -1,5 +1,18 @@
 
+
+
 //App JS
+
+
+      //my old friends:
+// Parent Component
+// <Subject items={this.state.resources[0]}/>
+// <Subject items={this.state.resources[1]}/>
+// <Subject items={this.state.resources[2]}/>
+// <Subject items={this.state.resources[3]}/>
+
+
+
 
 import React, { Component } from 'react';
 import Subject from './Subject.js';
@@ -10,8 +23,6 @@ class App extends Component {
     super();
 
     this.addNewResource = this.addNewResource.bind(this);
-    this.addNewSubject = this.addNewSubject.bind(this);
-    this.handleTyping = this.handleTyping.bind(this)
 
     this.state = {resources: [
 
@@ -100,18 +111,6 @@ class App extends Component {
     const tempState = this.state;
     tempState.resources[subject].resources.push(resource);
     this.setState(tempState)
-
-  }
-
-  addNewSubject(e) {
-    e.preventDefault();
-    const newSubject = {
-      subject: this.state.subject,
-      resources: []
-    }
-    const tempState = this.state;
-    tempState.resources.subject.push(newSubject)
-    this.setState = tempState
   }
 
   render() {
@@ -122,21 +121,12 @@ class App extends Component {
             return(
                 <Subject
                   index={index}
-                  addResurce={this.addNewResource}
+                  addResource={this.addNewResource}
                   items={resource}
                 />
               )
           })
         }
-
-        <div>
-          <form>
-            <label htmlFor="subject"></label>
-            <input id="subject" name="subject" onChange={this.handeTyping} value={this.state.subject}></input>
-            <button onClick={this.addNewSubject}> new Subject </button>
-          </form>
-        </div>
-
       </div>
       );
     }

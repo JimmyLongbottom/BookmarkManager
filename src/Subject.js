@@ -1,15 +1,14 @@
-
 //Subject JS
 
 
 import React, { Component } from 'react';
-import  './Subject.css';
-//import './logo.svg';
+import './Subject.css';
 
 export default class Subject extends Component {
   constructor(props) {
     super(props);
 
+    // event handlers
     this.handleCLick = this.handleClick.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,9 +38,8 @@ handleClick(){
 handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
-
               //  console.log(this.state.isClicked)
-              //setTimeout(){
+              //setTImeout(){
 // setTimeout(()=> {
 //   console.log(this.state.isCLicked)
 // }, 100}
@@ -57,17 +55,13 @@ handleTyping(e){
               return(
                 <li className="links">
                   <a  href={resource.url}>{resource.title}</a>
-                  &nbsp; &nbsp;
-                  <button id='removeButton' onClick="">X</button>
                 </li>
               )}
             })
           }
-          <figure className='circle'></figure>
         <br/>
         </ul>
         <form id='form'>
-
           <label htmlFor="title">Title</label>
           &nbsp;
           <input name="title" id="title" onChange={this.handleTyping} value={this.state.title}/>

@@ -13,7 +13,7 @@
 }
 
 .sub:hover{
-  -webkit-transition: width 0s;
+  -webkit-transition: width 0s; /* Safari */
   width: 755px;
   color: #6d2aff;
 }
@@ -27,7 +27,7 @@
 
 .addButton {
     border-radius: 25px;
-    -webkit-transition: width 2s;
+    -webkit-transition: width 2s; /* Safari */
     transition: width 2s;
     background: orange;
 }
@@ -45,14 +45,4 @@
 
 .form {
   color: red;
-}
-
-.circle{
-  display: block;
-  background: black;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  margin: 0;
-  background: radial-gradient(circle at 100px 100px, #5cabff, #000);
 }
