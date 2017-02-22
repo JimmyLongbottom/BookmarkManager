@@ -1,18 +1,5 @@
 
-
-
 //App JS
-
-
-      //my old friends:
-// Parent Component
-// <Subject items={this.state.resources[0]}/>
-// <Subject items={this.state.resources[1]}/>
-// <Subject items={this.state.resources[2]}/>
-// <Subject items={this.state.resources[3]}/>
-
-
-
 
 import React, { Component } from 'react';
 import Subject from './Subject.js';
@@ -23,8 +10,12 @@ class App extends Component {
     super();
 
     this.addNewResource = this.addNewResource.bind(this);
+      //added the following Bindings
+    this.addNewSubject = this.addNewSubject.bind(this);
+    this.handleTyping = this.handleTyping.bind(this);
 
-    this.state = {resources: [
+        //changed this.state
+    this.state = {subject:'', resources: [
 
       {
         subject:"Intro and ES5 assessment / ES6 Intro - Week: 1",
@@ -113,24 +104,46 @@ class App extends Component {
     this.setState(tempState)
   }
 
-  render() {
 
+  //added the following ...down to render
+
+  addNewSubject(e) {
+    e.preventDefault();
+    const newSubject = {
+      subject: this.state.subject,
+      resources: []
+    };
+    const tempState = this.state;
+    tempState.resources.push(newSubject);
+    this.setState(tempState);
+  }
+
+  handleTyping(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+
+  render() {
     return (
       <div>
-        {this.state.resources.map((resource, index) =>{
+        {
+          this.state.resources.map((resource, index) => {
             return(
-                <Subject
-                  index={index}
-                  addResource={this.addNewResource}
-                  items={resource}
-                />
-              )
+              <Subject index={index} addResource={this.addNewResource} items={resource}/>
+            )
           })
         }
+        <div>
+          <form>
+            <label htmlFor="subject"></label>
+            <input id="subject" name="subject" onChange={this.handleTyping} value={this.state.subject}></input>
+            <button onClick={this.addNewSubject}>New Subject</button>
+          </form>
+        </div>
       </div>
-      );
-    }
+    );
   }
+}
 
 
 export default App;

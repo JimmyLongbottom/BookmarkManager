@@ -38,11 +38,6 @@ handleClick(){
 handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
-              //  console.log(this.state.isClicked)
-              //setTImeout(){
-// setTimeout(()=> {
-//   console.log(this.state.isCLicked)
-// }, 100}
 
   render() {
     return(
