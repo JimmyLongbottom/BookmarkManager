@@ -55,10 +55,13 @@ handleTyping(e){
               return(
                 <li className="links">
                   <a  href={resource.url}>{resource.title}</a>
+                  &nbsp; &nbsp;
+                  <button id='removeButton'>x</button>
                 </li>
               )}
             })
           }
+          <figure className='circle'></figure>
         <br/>
         </ul>
         <form id='form'>
