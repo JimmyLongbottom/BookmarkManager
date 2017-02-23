@@ -1,6 +1,5 @@
 //Subject JS
 
-
 import React, { Component } from 'react';
 import './Subject.css';
 
@@ -9,9 +8,12 @@ export default class Subject extends Component {
     super(props);
 
     // event handlers
-    this.handleCLick = this.handleClick.bind(this);
-    this.handleTyping = this.handleTyping.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleCLick = this.handleClick.bind(this);
+    // this.handleTyping = this.handleTyping.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+
+    //this.removeResource = this.removeResource.bind(this);
+
 
     this.state = {
       isClicked: true,
@@ -38,6 +40,10 @@ handleClick(){
 handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
+//
+// removeResource(){
+//   this.props.removeResource(this.props.resource);
+// }
 
   render() {
     return(
@@ -51,7 +57,7 @@ handleTyping(e){
                 <li className="links">
                   <a  href={resource.url}>{resource.title}</a>
                   &nbsp; &nbsp;
-                  <button id='removeButton'>x</button>
+                  <button id='removeButton' onClick={this.removeResource}>x</button>
                 </li>
               )}
             })

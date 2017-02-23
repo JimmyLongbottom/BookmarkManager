@@ -3,19 +3,22 @@
 
 import React, { Component } from 'react';
 import Subject from './Subject.js';
+import './Subject.css';
+import AddSubject from './AddSubject.js';
 
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
 
     this.addNewResource = this.addNewResource.bind(this);
-      //added the following Bindings
     this.addNewSubject = this.addNewSubject.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
 
-        //changed this.state
-    this.state = {subject:'', resources: [
+    //this.removeResource = this.removeResource.bind(this);
+
+    this.state = {subject:'',
+                  resources: [
 
       {
         subject:"Intro and ES5 assessment / ES6 Intro - Week: 1",
@@ -104,9 +107,6 @@ class App extends Component {
     this.setState(tempState)
   }
 
-
-  //added the following ...down to render
-
   addNewSubject(e) {
     e.preventDefault();
     const newSubject = {
@@ -118,18 +118,28 @@ class App extends Component {
     this.setState(tempState);
   }
 
+
   handleTyping(e) {
     this.setState({[e.target.name]: e.target.value});
   }
 
+//   //remove a resource
+// removeResource(removeName){
+//   const filteredNames = this.state.resources.filter( resource => {
+//     return resource !== removeName;
+//   });
+//   this.setState({resources: filteredNames});
+// }
 
-  render() {
-    return (
-      <div>
+
+render() {
+  return (
+    <div>
+      <div id="addSubject">
         {
           this.state.resources.map((resource, index) => {
             return(
-              <Subject index={index} addResource={this.addNewResource} items={resource}/>
+              <Subject index={index} addResource={this.addNewResource} removeResource={this.removeResource} items={resource}/>
             )
           })
         }
@@ -137,13 +147,12 @@ class App extends Component {
           <form>
             <label htmlFor="subject"></label>
             <input id="subject" name="subject" onChange={this.handleTyping} value={this.state.subject}></input>
-            <button onClick={this.addNewSubject}>New Subject</button>
+            <button id="addSubjectButton" onClick={this.addNewSubject}>New Subject</button>
           </form>
+          <AddSubject/>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-
-export default App;
+}
