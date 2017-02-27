@@ -1,16 +1,16 @@
 //Subject JS
 
 import React, { Component } from 'react';
-import './Subject.css';
+import './Subject.css'
 
 export default class Subject extends Component {
   constructor(props) {
     super(props);
 
     // event handlers
-    // this.handleCLick = this.handleClick.bind(this);
-    // this.handleTyping = this.handleTyping.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCLick = this.handleClick.bind(this);
+    this.handleTyping = this.handleTyping.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     //this.removeResource = this.removeResource.bind(this);
 
@@ -40,14 +40,15 @@ handleClick(){
 handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
-//
+
 // removeResource(){
-//   this.props.removeResource(this.props.resource);
+//   this.props.removeResource(this.props.removeResource);
 // }
 
   render() {
     return(
       <div className='sub'>
+
         <h2 onClick={this.handleClick}>{this.props.items.subject}</h2>
 
         <ul className='list'>
@@ -55,9 +56,14 @@ handleTyping(e){
             if(this.state.isClicked){
               return(
                 <li className="links">
-                  <a  href={resource.url}>{resource.title}</a>
+                  <a
+                    removeResource={this.props.items.resources.removeResource}
+                    href={resource.url}>
+                    {resource.title}
+                  </a>
                   &nbsp; &nbsp;
-                  <button id='removeButton' onClick={this.removeResource}>x</button>
+                  <button id='removeButton'
+                          onClick=''>x</button>
                 </li>
               )}
             })
@@ -65,10 +71,16 @@ handleTyping(e){
           <figure className='circle'></figure>
         <br/>
         </ul>
+
         <form id='form'>
           <label htmlFor="title">Title</label>
           &nbsp;
-          <input name="title" id="title" onChange={this.handleTyping} value={this.state.title}/>
+          <input
+            name="title"
+            id="title"
+            onChange={this.handleTyping}
+            value={this.state.title}
+          />
           <br/><br/>
           <label htmlFor="url">URL</label>
           &nbsp;

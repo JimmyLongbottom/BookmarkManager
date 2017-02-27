@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import Subject from './Subject.js';
 import './Subject.css';
-import AddSubject from './AddSubject.js';
+
 
 
 export default class App extends Component {
@@ -14,8 +14,8 @@ export default class App extends Component {
     this.addNewResource = this.addNewResource.bind(this);
     this.addNewSubject = this.addNewSubject.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
-
-    //this.removeResource = this.removeResource.bind(this);
+    //bind removeResource
+    this.removeResource = this.removeResource.bind(this);
 
     this.state = {subject:'',
                   resources: [
@@ -100,6 +100,14 @@ export default class App extends Component {
 
     ]}
   }
+//remove a resource:
+  removeResource(subject, resource){
+    const tempState = this.state;
+    tempState.resources[subject].resources.map(resource => {
+      return resource !== resource;
+    });
+    this.setState(tempState)
+  }
 
   addNewResource(subject, resource){
     const tempState = this.state;
@@ -123,33 +131,46 @@ export default class App extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-//   //remove a resource
-// removeResource(removeName){
-//   const filteredNames = this.state.resources.filter( resource => {
-//     return resource !== removeName;
+ //remove a resource
+// removeResource(resourceToRemove){
+//   const filteredResources = this.state.items.resources.filter( resource => {
+//     return resource !== resourceToRemove;
 //   });
-//   this.setState({resources: filteredNames});
+//   this.setState({resources: filteredResources});
 // }
 
 
 render() {
   return (
     <div>
+
+
       <div id="addSubject">
         {
           this.state.resources.map((resource, index) => {
             return(
-              <Subject index={index} addResource={this.addNewResource} removeResource={this.removeResource} items={resource}/>
+              <Subject index={index}
+                       addResource={this.addNewResource}
+                       removeResource={this.removeResource}
+                       items={resource}/>
             )
           })
         }
         <div>
+
+
           <form>
             <label htmlFor="subject"></label>
-            <input id="subject" name="subject" onChange={this.handleTyping} value={this.state.subject}></input>
-            <button id="addSubjectButton" onClick={this.addNewSubject}>New Subject</button>
+            <input
+                id="subject"
+                name="subject"
+                onChange={this.handleTyping}
+                value={this.state.subject}>
+            </input>
+            <button id="addSubjectButton"
+                onClick={this.addNewSubject}>New Subject</button>
           </form>
-          <AddSubject/>
+
         </div>
       </div>
     </div>
