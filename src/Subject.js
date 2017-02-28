@@ -12,7 +12,7 @@ export default class Subject extends Component {
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    //this.removeResource = this.removeResource.bind(this);
+    this.removeResource = this.removeResource.bind(this);
 
 
     this.state = {
@@ -41,9 +41,10 @@ handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
 
-// removeResource(){
-//   this.props.removeResource(this.props.removeResource);
-// }
+removeResource(e){
+  e.preventDefault();
+  this.props.removeResource(this.props.index, e.target.removalId);
+}
 
   render() {
     return(
@@ -52,18 +53,14 @@ handleTyping(e){
         <h2 onClick={this.handleClick}>{this.props.items.subject}</h2>
 
         <ul className='list'>
-          {this.props.items.resources.map((resource) => {
+          {this.props.items.resources.map((resource, index) => {
             if(this.state.isClicked){
               return(
                 <li className="links">
-                  <a
-                    removeResource={this.props.items.resources.removeResource}
-                    href={resource.url}>
-                    {resource.title}
-                  </a>
+                  <a href={resource.url}>{resource.title} </a>
                   &nbsp; &nbsp;
-                  <button id='removeButton'
-                          onClick=''>x</button>
+                  <button id='removeButton' removalId={resource.title}
+                          onClick={this.removeResource}>x</button>
                 </li>
               )}
             })

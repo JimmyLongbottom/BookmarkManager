@@ -102,12 +102,12 @@ export default class App extends Component {
   }
 //remove a resource:
   removeResource(subject, resource){
-    const tempState = this.state;
-    tempState.resources[subject].resources.map(resource => {
-      return resource !== resource;
-    });
-    this.setState(tempState)
-  }
+    let tempState = this.state;
+    tempState.resources[subject].resources = tempState.resources[subject].resources.filter((name) => {
+      return name.title !== resource;
+    })
+console.log(tempState);
+}
 
   addNewResource(subject, resource){
     const tempState = this.state;
@@ -131,13 +131,6 @@ export default class App extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
- //remove a resource
-// removeResource(resourceToRemove){
-//   const filteredResources = this.state.items.resources.filter( resource => {
-//     return resource !== resourceToRemove;
-//   });
-//   this.setState({resources: filteredResources});
-// }
 
 
 render() {
@@ -149,7 +142,9 @@ render() {
         {
           this.state.resources.map((resource, index) => {
             return(
-              <Subject index={index}
+              <Subject
+            resource={resource}
+                index={index}
                        addResource={this.addNewResource}
                        removeResource={this.removeResource}
                        items={resource}/>
