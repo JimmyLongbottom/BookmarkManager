@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import Subject from './Subject.js';
 import './Subject.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 
 
@@ -14,8 +16,8 @@ export default class App extends Component {
     this.addNewResource = this.addNewResource.bind(this);
     this.addNewSubject = this.addNewSubject.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
-    //bind removeResource
     this.removeResource = this.removeResource.bind(this);
+
 
     this.state = {subject:'',
                   resources: [
@@ -101,13 +103,38 @@ export default class App extends Component {
     ]}
   }
 //remove a resource:
-  removeResource(subject, resource){
-    let tempState = this.state;
-    tempState.resources[subject].resources = tempState.resources[subject].resources.filter((name) => {
-      return name.title !== resource;
-    })
-console.log(tempState);
+
+removeResource(subject, resource){
+  let tempState = this.state;
+
+  // let i = tempState.resources[subject].resources.indexOf({});
+  // if(i != -1) {
+  //tempState.resources[subject].resources.splice(i, 1);
+  let removedState =
+  tempState.resources[subject].resources.slice(resource);
+
+  tempState.resources[subject].resources.splice(resource, 1);
+
+  this.setState(tempState);
 }
+
+//  removeResource() {
+ // let newItems = this.state.resources.[subject].resources.slice();
+//  newItems.splice(i, 1);
+//  this.setState({resources, newItems})
+// }
+
+
+
+
+
+  // removeResource(subject, resource){
+  //   let newItems = this.state.resources.[subject].resources.slice();
+  //   tempState = tempState.resources[subject].resources.filter((resource) => {
+  //     return resource.title !== resource;
+  //   this.setState(tempState);
+  //   })
+  //  }
 
   addNewResource(subject, resource){
     const tempState = this.state;
@@ -137,23 +164,20 @@ render() {
   return (
     <div>
 
-
       <div id="addSubject">
         {
           this.state.resources.map((resource, index) => {
             return(
               <Subject
-            resource={resource}
+                resource={resource}
                 index={index}
-                       addResource={this.addNewResource}
-                       removeResource={this.removeResource}
-                       items={resource}/>
+                addResource={this.addNewResource}
+                removeResource={this.removeResource}
+                items={resource}/>
             )
           })
         }
         <div>
-
-
           <form>
             <label htmlFor="subject"></label>
             <input

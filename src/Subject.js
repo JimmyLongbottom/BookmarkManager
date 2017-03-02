@@ -2,16 +2,17 @@
 
 import React, { Component } from 'react';
 import './Subject.css'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 export default class Subject extends Component {
   constructor(props) {
     super(props);
 
-    // event handlers
+
     this.handleCLick = this.handleClick.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
     this.removeResource = this.removeResource.bind(this);
 
 
@@ -42,8 +43,11 @@ handleTyping(e){
 }
 
 removeResource(e){
-  e.preventDefault();
-  this.props.removeResource(this.props.index, e.target.removalId);
+  const index = this.props.index;
+  const objKey = e.target.removalName;
+  this.props.removeResource(index,objKey);
+  // e.preventDefault();
+  // this.props.removeResource(this.props.index, e.target.removalId);
 }
 
   render() {
@@ -53,20 +57,23 @@ removeResource(e){
         <h2 onClick={this.handleClick}>{this.props.items.subject}</h2>
 
         <ul className='list'>
-          {this.props.items.resources.map((resource, index) => {
-            if(this.state.isClicked){
-              return(
-                <li className="links">
-                  <a href={resource.url}>{resource.title} </a>
-                  &nbsp; &nbsp;
-                  <button id='removeButton' removalId={resource.title}
-                          onClick={this.removeResource}>x</button>
-                </li>
-              )}
-            })
-          }
-          <figure className='circle'></figure>
-        <br/>
+            {this.props.items.resources.map((resource, key) => {
+              if(this.state.isClicked){
+                return(
+                  <li className="links" key={key}>
+                    <a href={resource.url} name={resource.title}>{resource.title} </a>
+                    &nbsp; &nbsp;
+                    <button id='removeButton'
+                            name={key}
+                            removalName={resource.title}
+                            onClick={this.removeResource}
+                    >x</button>
+                  </li>
+                )}
+              })
+            }
+            <figure className='circle'></figure>
+          <br/>
         </ul>
 
         <form id='form'>
