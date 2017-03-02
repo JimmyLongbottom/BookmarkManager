@@ -46,8 +46,7 @@ removeResource(e){
   const index = this.props.index;
   const objKey = e.target.id;
   this.props.removeResource(index,objKey);
-  // e.preventDefault();
-  // this.props.removeResource(this.props.index, e.target.removalId);
+
 }
 
   render() {

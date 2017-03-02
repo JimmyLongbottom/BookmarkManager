@@ -7,8 +7,6 @@ import './Subject.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
-
-
 export default class App extends Component {
   constructor() {
     super();
@@ -102,17 +100,9 @@ export default class App extends Component {
 
     ]}
   }
-//remove a resource:
 
 removeResource(subject, resource){
-console.log(subject, resource);
-
-
   let tempState = this.state;
-
-  // let i = tempState.resources[subject].resources.indexOf({});
-  // if(i != -1) {
-  //tempState.resources[subject].resources.splice(i, 1);
   let removedState =
   tempState.resources[subject].resources.slice();
 
@@ -120,22 +110,6 @@ console.log(subject, resource);
 
   this.setState(tempState);
 }
-
-//  removeResource() {
- // let newItems = this.state.resources.[subject].resources.slice();
-//  newItems.splice(i, 1);
-//  this.setState({resources, newItems})
-// }
-
-
-
-  // removeResource(subject, resource){
-  //   let newItems = this.state.resources.[subject].resources.slice();
-  //   tempState = tempState.resources[subject].resources.filter((resource) => {
-  //     return resource.title !== resource;
-  //   this.setState(tempState);
-  //   })
-  //  }
 
   addNewResource(subject, resource){
     const tempState = this.state;
@@ -153,7 +127,6 @@ console.log(subject, resource);
     tempState.resources.push(newSubject);
     this.setState(tempState);
   }
-
 
   handleTyping(e) {
     this.setState({[e.target.name]: e.target.value});
