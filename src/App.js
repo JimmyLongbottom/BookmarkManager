@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import Subject from './Subject.js';
 import './Subject.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+//import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 export default class App extends Component {
@@ -104,8 +104,7 @@ export default class App extends Component {
 // remove a subject ////////////////////////////////////////////////////////////////////////////////////
   removeSubject(subject){
     let tempState = this.state;
-    let removedState =
-    tempState.resources[subject].slice();
+    let removedState = tempState.resources[subject].slice();
     tempState.resources[subject].splice(subject, 1);
     this.setState(tempState);
   }

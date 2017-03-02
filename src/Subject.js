@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import './Subject.css'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+//import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 export default class Subject extends Component {
@@ -14,7 +14,7 @@ export default class Subject extends Component {
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.removeResource = this.removeResource.bind(this);
-    //this.removeSubject = this.removeSubject.bind(this);
+    this.removeSubject = this.removeSubject.bind(this);
 
 
     this.state = {
@@ -49,22 +49,31 @@ removeResource(e){
   this.props.removeResource(index, objKey);
 }
 
-// removeSubject(e) {
-//   const index = this.props.index;
-//   const subKey = e.target.id;
-//   this.props.removeSubject(subIndex, subKey)
+//FROM APP.JS...///////////////////////////////////////////////////////////////////
+// removeSubject(subject){
+//   let tempState = this.state;
+//   let removedState = tempState.resources[subject].slice();
+//   tempState.resources[subject].splice(subject, 1);
+//   this.setState(tempState);
 // }
-
+///////////////////////////////////////////////////////////////////////////////////////////
+removeSubject(e) {
+  const subIndex = this.props.index;
+  const subKey = e.target.id;
+  this.props.removeSubject(subIndex, subKey)
+}
+///////////////////////////////////////////////////////////////////////////////////////////
   render() {
     return(
       <div className='sub'>
 
-        <h2 onClick={this.handleClick}>{this.props.items.subject}
+        <h2 >{this.props.items.subject}</h2>
           <button
+            id={this.props.name}
             onClick={this.removeSubject}
             >Remove Subject
           </button>
-        </h2>
+
 
         <ul className='list'>
             {this.props.items.resources.map((resource, index) => {
