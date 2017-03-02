@@ -44,7 +44,7 @@ handleTyping(e){
 
 removeResource(e){
   const index = this.props.index;
-  const objKey = e.target.removalName;
+  const objKey = e.target.id;
   this.props.removeResource(index,objKey);
   // e.preventDefault();
   // this.props.removeResource(this.props.index, e.target.removalId);
@@ -57,15 +57,13 @@ removeResource(e){
         <h2 onClick={this.handleClick}>{this.props.items.subject}</h2>
 
         <ul className='list'>
-            {this.props.items.resources.map((resource, key) => {
+            {this.props.items.resources.map((resource, index) => {
               if(this.state.isClicked){
                 return(
-                  <li className="links" key={key}>
+                  <li className="links" >
                     <a href={resource.url} name={resource.title}>{resource.title} </a>
                     &nbsp; &nbsp;
-                    <button id='removeButton'
-                            name={key}
-                            removalName={resource.title}
+                    <button id={index}
                             onClick={this.removeResource}
                     >x</button>
                   </li>

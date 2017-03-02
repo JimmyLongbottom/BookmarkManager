@@ -105,13 +105,16 @@ export default class App extends Component {
 //remove a resource:
 
 removeResource(subject, resource){
+console.log(subject, resource);
+
+
   let tempState = this.state;
 
   // let i = tempState.resources[subject].resources.indexOf({});
   // if(i != -1) {
   //tempState.resources[subject].resources.splice(i, 1);
   let removedState =
-  tempState.resources[subject].resources.slice(resource);
+  tempState.resources[subject].resources.slice();
 
   tempState.resources[subject].resources.splice(resource, 1);
 
@@ -123,8 +126,6 @@ removeResource(subject, resource){
 //  newItems.splice(i, 1);
 //  this.setState({resources, newItems})
 // }
-
-
 
 
 
