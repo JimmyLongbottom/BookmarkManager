@@ -14,6 +14,7 @@ export default class Subject extends Component {
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.removeResource = this.removeResource.bind(this);
+    //this.removeSubject = this.removeSubject.bind(this);
 
 
     this.state = {
@@ -45,15 +46,25 @@ handleTyping(e){
 removeResource(e){
   const index = this.props.index;
   const objKey = e.target.id;
-  this.props.removeResource(index,objKey);
-
+  this.props.removeResource(index, objKey);
 }
+
+// removeSubject(e) {
+//   const index = this.props.index;
+//   const subKey = e.target.id;
+//   this.props.removeSubject(subIndex, subKey)
+// }
 
   render() {
     return(
       <div className='sub'>
 
-        <h2 onClick={this.handleClick}>{this.props.items.subject}</h2>
+        <h2 onClick={this.handleClick}>{this.props.items.subject}
+          <button
+            onClick={this.removeSubject}
+            >Remove Subject
+          </button>
+        </h2>
 
         <ul className='list'>
             {this.props.items.resources.map((resource, index) => {

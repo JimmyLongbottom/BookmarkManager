@@ -15,7 +15,7 @@ export default class App extends Component {
     this.addNewSubject = this.addNewSubject.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
     this.removeResource = this.removeResource.bind(this);
-
+    this.removeSubject = this.removeSubject.bind(this);
 
     this.state = {subject:'',
                   resources: [
@@ -101,13 +101,21 @@ export default class App extends Component {
     ]}
   }
 
+// remove a subject ////////////////////////////////////////////////////////////////////////////////////
+  removeSubject(subject){
+    let tempState = this.state;
+    let removedState =
+    tempState.resources[subject].slice();
+    tempState.resources[subject].splice(subject, 1);
+    this.setState(tempState);
+  }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 removeResource(subject, resource){
   let tempState = this.state;
-  let removedState =
-  tempState.resources[subject].resources.slice();
-
+  let removedState = tempState.resources[subject].resources.slice();
   tempState.resources[subject].resources.splice(resource, 1);
-
   this.setState(tempState);
 }
 
