@@ -1,20 +1,20 @@
 //Subject JS ///////////////////////////////////////////////////////////////
 
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './Subject.css'
 
 
 export default class Subject extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
 
-    this.handleCLick = this.handleClick.bind(this);
-    this.handleTyping = this.handleTyping.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.removeResource = this.removeResource.bind(this);
-    this.removeSubject = this.removeSubject.bind(this);
+    this.handleCLick = this.handleClick.bind(this)
+    this.handleTyping = this.handleTyping.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.removeResource = this.removeResource.bind(this)
+    this.removeSubject = this.removeSubject.bind(this)
 
 
     this.state = {
@@ -26,18 +26,18 @@ export default class Subject extends Component {
 
 
 handleSubmit(e){
-  e.preventDefault();
+  e.preventDefault()
   const newResource = {
     title: this.state.title,
     url: this.state.url,
   }
-  this.props.addResource(this.props.index, newResource);
+  this.props.addResource(this.props.index, newResource)
 }
 
 handleClick(){
   this.setState(prevState => ({
     isClicked : !prevState.isClicked
-  }));
+  }))
 }
 
 handleTyping(e){
@@ -45,15 +45,15 @@ handleTyping(e){
 }
 
 removeResource(e) {
-  const index = this.props.index;
-  const resc = e.target.id;
-  this.props.removeResource(index, resc);
+  const index = this.props.index
+  const resc = e.target.id
+  this.props.removeResource(index, resc)
 }
 
 removeSubject(e) {
-  const subIndex = this.props.subIndex;
-  const subj = e.target.id;
-  this.props.removeSubject(subIndex, subj);
+  const subIndex = this.props.subIndex
+  const subj = e.target.id
+  this.props.removeSubject(subIndex, subj)
 }
 
   render() {
