@@ -74,9 +74,7 @@ removeSubject(e) {
                   <li className="links" >
                     <a href={resource.url} name={resource.title}>{resource.title} </a>
                     &nbsp; &nbsp;
-                    <button id={index}
-                            onClick={this.removeResource}
-                    >x</button>
+                    <button id={index} onClick={this.removeResource}>x</button>
                   </li>
                 )}
               })
