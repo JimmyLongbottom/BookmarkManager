@@ -5,7 +5,6 @@
 import React, { Component } from 'react';
 import Subject from './Subject.js';
 import './Subject.css';
-//import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 export default class App extends Component {
@@ -107,15 +106,8 @@ export default class App extends Component {
   }
 
 
-// remove a subject ////////////////////////////////////////////////////////////////////////////////////
-  removeSubject(resources){
 
-    let tempState = this.state;
-    let removedState = tempState.resources.slice();
-    tempState.resources.splice(resources, 1);
-    this.setState(tempState);
-  }
-
+//remove a resource inside a subject card////////////////////////////////
 removeResource(subject, resource){
   let tempState = this.state;
   let removedState = tempState.resources[subject].subject.slice();
@@ -123,12 +115,22 @@ removeResource(subject, resource){
   this.setState(tempState);
 }
 
+//add a new resource inside a subject card/////////////////////////////
   addNewResource(subject, resource){
     const tempState = this.state;
     tempState.resources[subject].resources.push(resource);
     this.setState(tempState)
   }
 
+// remove a subject card///////////////////////////////////////////////
+  removeSubject(resources){
+    let tempState = this.state;
+    let removedState = tempState.resources.slice();
+    tempState.resources.splice(resources, 1);
+    this.setState(tempState);
+  }
+
+//add a new subject card///////////////////////////////////////////////
   addNewSubject(e) {
     e.preventDefault();
     const newSubject = {
@@ -143,7 +145,6 @@ removeResource(subject, resource){
   handleTyping(e) {
     this.setState({[e.target.name]: e.target.value});
   }
-
 
 
 render() {

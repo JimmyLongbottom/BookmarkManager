@@ -3,7 +3,6 @@
 
 import React, { Component } from 'react';
 import './Subject.css'
-//import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 export default class Subject extends Component {
@@ -48,10 +47,8 @@ handleTyping(e){
 removeResource(e) {
   const index = this.props.index;
   const resc = e.target.id;
-  console.log(e.target.id)
   this.props.removeResource(index, resc);
 }
-
 
 removeSubject(e) {
   const subIndex = this.props.subIndex;
@@ -69,7 +66,6 @@ removeSubject(e) {
             onClick={this.props.removeSubject}>
             Remove Subject
           </button>
-
 
         <ul className='list'>
             {this.props.items.resources.map((resource, index) => {
