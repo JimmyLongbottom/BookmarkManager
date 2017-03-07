@@ -106,27 +106,17 @@ export default class App extends Component {
   }
 
 
-
-//remove a resource inside a subject card////////////////////////////////
-removeResource(subject, resource){
-  let tempState = this.state
-  let removedState = tempState.resources[subject].subject.slice()
-  tempState.resources[subject].resources.splice(resource, 1)
-  this.setState(tempState)
-}
-
-//add a new resource inside a subject card/////////////////////////////
+  //add a new resource inside a subject card/////////////////////////////
   addNewResource(subject, resource){
     const tempState = this.state
     tempState.resources[subject].resources.push(resource)
     this.setState(tempState)
   }
 
-// remove a subject card///////////////////////////////////////////////
-  removeSubject(resources){
+  //remove a resource inside a subject card////////////////////////////////
+  removeResource(subject, resource){
     let tempState = this.state
-    let removedState = tempState.resources.slice()
-    tempState.resources.splice(resources, 1)
+    tempState.resources[subject].resources.splice(resource, 1)
     this.setState(tempState)
   }
 
@@ -139,12 +129,19 @@ removeResource(subject, resource){
     };
     const tempState = this.state
     tempState.resources.push(newSubject)
-    this.setState(tempState);
+    this.setState(tempState)
   }
 
-  handleTyping(e) {
-    this.setState({[e.target.name]: e.target.value})
+// remove a subject card///////////////////////////////////////////////
+  removeSubject(resources){
+    let tempState = this.state
+    tempState.resources.splice(1, 1)
+    this.setState(tempState)
   }
+
+handleTyping(e) {
+  this.setState({[e.target.name]: e.target.value})
+}
 
 
 render() {
@@ -182,7 +179,7 @@ render() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 }
 /////////////////////THE END///////////////////////////////////////////////
