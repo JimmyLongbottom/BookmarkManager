@@ -2,20 +2,20 @@
 //App JS ///////////////////////////////////////////////////////////////////////
 
 
-import React, { Component } from 'react';
-import Subject from './Subject.js';
-import './Subject.css';
+import React, { Component } from 'react'
+import Subject from './Subject.js'
+import './Subject.css'
 
 
 export default class App extends Component {
   constructor() {
     super();
 
-    this.addNewResource = this.addNewResource.bind(this);
-    this.addNewSubject = this.addNewSubject.bind(this);
-    this.handleTyping = this.handleTyping.bind(this);
-    this.removeResource = this.removeResource.bind(this);
-    this.removeSubject = this.removeSubject.bind(this);
+    this.addNewResource = this.addNewResource.bind(this)
+    this.addNewSubject = this.addNewSubject.bind(this)
+    this.handleTyping = this.handleTyping.bind(this)
+    this.removeResource = this.removeResource.bind(this)
+    this.removeSubject = this.removeSubject.bind(this)
 
 
     this.state = {
@@ -109,41 +109,41 @@ export default class App extends Component {
 
 //remove a resource inside a subject card////////////////////////////////
 removeResource(subject, resource){
-  let tempState = this.state;
-  let removedState = tempState.resources[subject].subject.slice();
-  tempState.resources[subject].resources.splice(resource, 1);
-  this.setState(tempState);
+  let tempState = this.state
+  let removedState = tempState.resources[subject].subject.slice()
+  tempState.resources[subject].resources.splice(resource, 1)
+  this.setState(tempState)
 }
 
 //add a new resource inside a subject card/////////////////////////////
   addNewResource(subject, resource){
-    const tempState = this.state;
-    tempState.resources[subject].resources.push(resource);
+    const tempState = this.state
+    tempState.resources[subject].resources.push(resource)
     this.setState(tempState)
   }
 
 // remove a subject card///////////////////////////////////////////////
   removeSubject(resources){
-    let tempState = this.state;
-    let removedState = tempState.resources.slice();
-    tempState.resources.splice(resources, 1);
-    this.setState(tempState);
+    let tempState = this.state
+    let removedState = tempState.resources.slice()
+    tempState.resources.splice(resources, 1)
+    this.setState(tempState)
   }
 
 //add a new subject card///////////////////////////////////////////////
   addNewSubject(e) {
-    e.preventDefault();
+    e.preventDefault()
     const newSubject = {
       subject: this.state.subject,
       resources: []
     };
-    const tempState = this.state;
-    tempState.resources.push(newSubject);
+    const tempState = this.state
+    tempState.resources.push(newSubject)
     this.setState(tempState);
   }
 
   handleTyping(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({[e.target.name]: e.target.value})
   }
 
 
