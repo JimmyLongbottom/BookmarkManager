@@ -1,4 +1,5 @@
-//Subject JS
+//Subject JS ///////////////////////////////////////////////////////////////
+
 
 import React, { Component } from 'react';
 import './Subject.css'
@@ -24,6 +25,7 @@ export default class Subject extends Component {
     }
 }
 
+
 handleSubmit(e){
   e.preventDefault();
   const newResource = {
@@ -43,35 +45,29 @@ handleTyping(e){
   this.setState({[e.target.name]: e.target.value})
 }
 
-removeResource(e){
+removeResource(e) {
   const index = this.props.index;
-  const objKey = e.target.id;
-  this.props.removeResource(index, objKey);
+  const resc = e.target.id;
+  console.log(e.target.id)
+  this.props.removeResource(index, resc);
 }
 
-//FROM APP.JS...///////////////////////////////////////////////////////////////////
-// removeSubject(subject){
-//   let tempState = this.state;
-//   let removedState = tempState.resources[subject].slice();
-//   tempState.resources[subject].splice(subject, 1);
-//   this.setState(tempState);
-// }
-///////////////////////////////////////////////////////////////////////////////////////////
+
 removeSubject(e) {
-  const subIndex = this.props.index;
-  const subKey = e.target.id;
-  this.props.removeSubject(subIndex, subKey)
+  const subIndex = this.props.subIndex;
+  const subj = e.target.id;
+  this.props.removeSubject(subIndex, subj);
 }
-///////////////////////////////////////////////////////////////////////////////////////////
+
   render() {
     return(
       <div className='sub'>
 
         <h2 >{this.props.items.subject}</h2>
           <button
-            id={this.props.name}
-            onClick={this.removeSubject}
-            >Remove Subject
+            id=''
+            onClick={this.props.removeSubject}>
+            Remove Subject
           </button>
 
 
@@ -114,3 +110,4 @@ removeSubject(e) {
   }
 
 }
+/////////////////END OF THE ROAD//////////////////////////////////////////////

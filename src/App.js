@@ -1,5 +1,6 @@
 
-//App JS
+//App JS ///////////////////////////////////////////////////////////////////////
+
 
 import React, { Component } from 'react';
 import Subject from './Subject.js';
@@ -17,8 +18,12 @@ export default class App extends Component {
     this.removeResource = this.removeResource.bind(this);
     this.removeSubject = this.removeSubject.bind(this);
 
-    this.state = {subject:'',
-                  resources: [
+
+    this.state = {
+
+
+      subject:'',
+      resources: [
 
       {
         subject:"Intro and ES5 assessment / ES6 Intro - Week: 1",
@@ -101,19 +106,19 @@ export default class App extends Component {
     ]}
   }
 
+
 // remove a subject ////////////////////////////////////////////////////////////////////////////////////
-  removeSubject(subject){
+  removeSubject(resources){
+
     let tempState = this.state;
-    let removedState = tempState.resources[subject].slice();
-    tempState.resources[subject].splice(subject, 1);
+    let removedState = tempState.resources.slice();
+    tempState.resources.splice(resources, 1);
     this.setState(tempState);
   }
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 removeResource(subject, resource){
   let tempState = this.state;
-  let removedState = tempState.resources[subject].resources.slice();
+  let removedState = tempState.resources[subject].subject.slice();
   tempState.resources[subject].resources.splice(resource, 1);
   this.setState(tempState);
 }
@@ -145,7 +150,7 @@ render() {
   return (
     <div>
 
-      <div id="addSubject">
+      <div >
         {
           this.state.resources.map((resource, index) => {
             return(
@@ -154,7 +159,9 @@ render() {
                 index={index}
                 addResource={this.addNewResource}
                 removeResource={this.removeResource}
-                items={resource}/>
+                items={resource}
+                removeSubject={this.removeSubject}
+              />
             )
           })
         }
@@ -177,3 +184,4 @@ render() {
   );
 }
 }
+/////////////////////THE END///////////////////////////////////////////////
